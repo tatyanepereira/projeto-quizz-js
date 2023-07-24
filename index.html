@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <label>
+            <input type="checkbox" id="theme-checkbox">
+            Dark Mode
+        </label>
+        <h1>Quiz Interativo</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Coloque seu nome, escolha um tema e clique em iniciar.</h2>
+            <label for="participante-nome">Digite seu nome:</label>
+            <input type="text" id="participante-nome" required>
+            <form>
+                <label for="tema">Escolha o tema:</label>
+                <select name="tema">
+                    <option disabled selected>Escolha um tema:</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">Javascript</option>
+                </select> 
+            </form>
+            <button id="start-btn">Iniciar Quiz</button>
+            <div id="timer">Tempo: <span id="time">00:00</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <audio id="background-audio" loop>
+        </audio>
+        <button id="audio-toggle">Ligar/Desligar Trilha Sonora</button>
+    </footer>
+
+    <script src=".js/script.js"></script>
+</body>
+
+</html>
