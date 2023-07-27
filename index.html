@@ -1,46 +1,135 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Interativo</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <meta property="fb:app_id" content="911989253208059" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Squad-4" />
+    <meta property="og:description" content="Saiba mais" />
+    <meta property="og:image" content="https://github.com/tatyanepereira/projeto-quizz-js" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="Quiz-Interativo" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
+
 <body>
     <header>
-        <label>
-            <input type="checkbox" id="theme-checkbox">
-            Dark Mode
-        </label>
-        <h1>Quiz Interativo</h1>
+        <div id="header-icones">
+            <button class="btn-header-cor" id="mudar-cor">
+                <span class="material-symbols-outlined">dark_mode</span>
+                <span class="material-symbols-outlined">light_mode</span>
+            </button>
+            <button class="btn-header-musica">
+                <span class="material-symbols-outlined">volume_up</span>
+                <span class="material-symbols-outlined">volume_off</span>
+            </button>
+        </div>
     </header>
+
     <main>
-        <section>
+        <h1>Quiz Interativo!</h1>
+        <div class="container">
             <h2>Coloque seu nome, escolha um tema e clique em iniciar.</h2>
-            <label for="participante-nome">Digite seu nome:</label>
-            <input type="text" id="participante-nome" required>
-            <form>
-                <label for="tema">Escolha o tema:</label>
+            <form id="quizForm">
+                <div class="form-group">
+                    <form action="">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group"></div>
+                <label for="tema">Tema:</label>
                 <select name="tema">
                     <option disabled selected>Escolha um tema:</option>
                     <option value="html">HTML</option>
                     <option value="css">CSS</option>
                     <option value="js">Javascript</option>
-                </select> 
+                </select>
+                <div class="form-group">
+                    <button type="submit" id="btn-iniciar">Iniciar Quiz</button>
+                </div>
             </form>
-            <button id="start-btn">Iniciar Quiz</button>
-            <div id="timer">Tempo: <span id="time">00:00</span></div>
-            </div>
-        </section>
+        </div>
+        <!-- Perguntas -->
+        <h1 class="titulo-tema"></h1>
+        <div class="perguntas">
+            <ol id="lista-questoes"></ol>
+        </div>
+
+        <div class="btn-finalizar">
+            <button id="reiniciar" class="btnreiniciar">Reiniciar</button>
+            <button id="concluir" class="btnconcluir">Concluir</button>
+        </div>
+
+        <!-- Resultados -->
+        <div class="resultados">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tema</th>
+                        <th>Tempo</th>
+                        <th>Pontuação</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="media">
+            <p class="media-acertos"></p>
+            <p class="media-erros"></p>
+        </div>
+
+        <div class="temas-questoes">
+            <h2>html</h2>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <h2>css</h2>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <h2>javascript</h2>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
     </main>
+</body>
 
-    <footer>
-        <audio id="background-audio" loop>
-        </audio>
-        <button id="audio-toggle">Ligar/Desligar Trilha Sonora</button>
-    </footer>
+</html>
 
-    <script src=".js/script.js"></script>
+
+
+</main>
+
+<footer>
+</footer>
+
+
 </body>
 
 </html>
