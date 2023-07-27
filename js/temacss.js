@@ -113,4 +113,8 @@ export const temacss = [
 //7.  a) border-radius
 //8.  c) display: none;
 //9.  a) line-height
+<<<<<<< HEAD
 //10. d) li:nth-child(even)
+=======
+//10. d) li:nth-child(even)
+>>>>>>> 821f6a1011eb8a1374ed6a16e21ef09b8880c94d

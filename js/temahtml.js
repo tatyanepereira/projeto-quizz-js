@@ -113,4 +113,8 @@ export const temahtml = [
 //7.  b) <p>
 //8.  a) <class>
 //9.  a) <button>
+<<<<<<< HEAD
 //10. c) <hr>
+=======
+//10. c) <hr>
+>>>>>>> 821f6a1011eb8a1374ed6a16e21ef09b8880c94d
