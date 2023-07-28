@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 
@@ -31,8 +29,8 @@
     </header>
 
     <main>
-        <h1>Quiz Interativo!</h1>
         <div class="container">
+            <h1>Quiz Interativo!</h1>
             <h2>Coloque seu nome, escolha um tema e clique em iniciar.</h2>
             <form id="quizForm">
                 <div class="form-group">
@@ -43,16 +41,17 @@
                 <div class="form-group"></div>
                 <label for="tema">Tema:</label>
                 <select name="tema">
-                    <option disabled selected>Escolha um tema:</option>
+                    <option disabled selected></option>
                     <option value="html">HTML</option>
                     <option value="css">CSS</option>
                     <option value="js">Javascript</option>
                 </select>
                 <div class="form-group">
-                    <button type="submit" id="btn-iniciar">Iniciar Quiz</button>
+                    <button type="submit" id="btn-iniciar">INICIAR</button>
                 </div>
             </form>
         </div>
+
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
         <div class="perguntas">
@@ -112,6 +111,19 @@
     </main>
 
     <footer>
+        <div id="icones">
+            <button class="btn-cor" id="mudar-cor">
+                <span class="material-symbols-outlined">light_mode</span>
+            </button>
+
+            <button id= "volumeUp" class="btn-musica" >
+                <span class="material-symbols-outlined">volume_up</span>
+            </button>
+
+            <button id="volumeOff" class="btn-musica-off"> 
+                <span class="material-symbols-outlined">volume_off</span>
+            </button>
+        </div>
     </footer>
 
 </body>
