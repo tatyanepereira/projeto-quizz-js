@@ -22,6 +22,11 @@
     display: none;
 }
 
+
 .media {
+    display: none;
+}
+
+.container-temas {
     display: none;
 }
