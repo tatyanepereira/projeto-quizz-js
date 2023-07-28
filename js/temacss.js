@@ -1,120 +1,104 @@
 export const temacss = [
 	{
         title: "Qual é o seletor CSS que aplica estilo a todos os elementos HTML?",
-        value: [    
-            "a) *",
-            "b) #",
-            "c) .",
-            "d) &",
+        alternativa: [    
+            "*",
+            "#",
+            ".",
+            "&",
         ],
         answer: 0,
     },
     {
         title: "Qual propriedade CSS é usada para alterar o tamanho do texto?",
-        value: [
-            "a) font-size",
-            "b) text-style",
-            "c) font-style",
-            "d) size-text",
+        alternativa: [
+            "font-size",
+            "text-style",
+            "font-style",
+            "size-text",
         ],
         answer: 0,
     },
     {
         title: "Como definir a cor de fundo de um elemento em CSS?",
-        value: [
-            "a) background-color",
-            "b) color",
-            "c) bg-color",
-            "d) background",
+        alternativa: [
+            "background-color",
+            "color",
+            "bg-color",
+            "background",
         ],
         answer: 0,
     },
     {
         title: "Qual é a propriedade CSS usada para adicionar uma sombra a um elemento?",
-        value: [
-            "a) shadow",
-            "b) text-shadow",
-            "c) box-shadow",
-            "d) element-shadow",
+        alternativa: [
+            "shadow",
+            "text-shadow",
+            "box-shadow",
+            "element-shadow",
         ],
         answer: 2,
     },
     {
         title: "Como centralizar um elemento horizontalmente em CSS?",
-        value: [
-            "a) align: center;",
-            "b) margin: auto;",
-            "c) float: center;",
-            "d) position: center;",
+        alternativa: [
+            "align: center;",
+            "margin: auto;",
+            "float: center;",
+            "position: center;",
         ],
         answer: 1,
     },
     {
         title: "Qual é o seletor CSS usado para aplicar estilo a um elemento quando o mouse está sobre ele?",
-        value: [
-            "a) :mouse-over",
-            "b) :hover",
-            "c) :on-hover",
-            "d) :mouseover",
+        alternativa: [
+            ":mouse-over",
+            ":hover",
+            ":on-hover",
+            ":mouseover",
         ],
         answer: 1,
     },
     {
         title: "Para arredondar as bordas de um elemento em CSS, qual propriedade você usaria?",
-        value: [   
-            "a) border-radius",
-            "b) corner-radius",
-            "c) border-style",
-            "d) edge-radius",
+        alternativa: [   
+            "border-radius",
+            "corner-radius",
+            "border-style",
+            "edge-radius",
         ],
         answer: 0,
     },
     {
         title: "Como ocultar um elemento em CSS sem afetar o layout da página?",
-        value: [
-            "a) display: hidden;",
-            "b) visibility: hidden;",
-            "c) display: none;",
-            "d) visible: false;",
+        alternativa: [
+            "display: hidden;",
+            "visibility: hidden;",
+            "display: none;",
+            "visible: false;",
         ],
         answer: 2,
     },
     {
         title: "Qual é a propriedade CSS usada para alterar o espaçamento entre as linhas de texto?",
-        value: [
-            "a) line-height",
-            "b) spacing-line",
-            "c) text-spacing",
-            "d) line-spacing",
+        alternativa: [
+            "line-height",
+            "spacing-line",
+            "text-spacing",
+            "line-spacing",
         ],
         answer: 2,
     },
     {
         title: "Como aplicar um estilo CSS que afeta apenas elementos pares de uma lista não ordenada (ul)?",
-        value: [
-            "a) li:even",
-            "b) ul:nth-child(even)",
-            "c) ul:even-child",
-            "d) li:nth-child(even)",
+        alternativa: [
+            "li:even",
+            "ul:nth-child(even)",
+            "ul:even-child",
+            "li:nth-child(even)",
         ],
         answer: 3,
     }
 ];
 
 
-//Respostas :
-
-//1.  a) *
-//2.  a) font-size
-//3.  a) background-color
-//4.  c) box-shadow
-//5.  b) margin: auto;
-//6.  b) :hover
-//7.  a) border-radius
-//8.  c) display: none;
-//9.  a) line-height
-<<<<<<< HEAD
-//10. d) li:nth-child(even)
-=======
-//10. d) li:nth-child(even)
->>>>>>> 821f6a1011eb8a1374ed6a16e21ef09b8880c94d

@@ -1,120 +1,102 @@
 export const temahtml = [
 	{
 		title: "Qual elemento HTML é usado para criar um hyperlink?",
-		value: [
-			"a) <link>",
-			"b) <a>",
-			"c) <href>",
-			"d) <hyper>",
+		alternativa: [
+			"link",
+			"a",
+			"href",
+			"hyper",
 		],
 		answer: 1,
 	},
     {
         title: "Qual atributo HTML é usado para definir o texto alternativo para uma imagem?",
-        value: [
-            "a) <src>",
-            "b) <alt>",
-            "c) <title>",
-            "d) <img>",
+        alternativa: [
+            "asrc",
+            "alt",
+            "title",
+            "img",
         ],
         answer: 1,
     },
     {
         title: "Qual tag HTML é usada para criar uma lista não ordenada?",
-        value: [
-            "a) <ul>",
-            "b) <li>",
-            "c) <ol>",
-            "d) <list></list>",
+        alternativa: [
+            "ul",
+            "li",
+            "ol",
+            "list",
         ],
         answer: 0,
     },
     {
         title: "Qual elemento HTML é usado para criar um cabeçalho de nível 1?",
-        value: [
-            "a) <h1>",
-            "b) <header>",
-            "c) <head>",
-            "d) <heading></heading>",
+        alternativa: [
+            "h1",
+            "header",
+            "head",
+            "heading",
             ],
         answer: 0,
     },
     {
         title: "Qual atributo HTML é usado para definir o estilo em linha de um elemento?",
-        value: [
-            "a) style",
-            "b) inline",
-            "c) css",
-            "d) script",
+        alternativa: [
+            "style",
+            "inline",
+            "css",
+            "script",
         ],
         answer: 0,
     },
     {
         title: "Qual tag HTML é usada para criar uma tabela?",
-        value: [
-            "a) <table>",
-            "b) <tab>",
-            "c) <tbl>",
-            "d) <tr>",
+        alternativa: [
+            "table",
+            "tab",
+            "tbl",
+            "tr",
         ],
         answer: 0,
     },
     {
         title: "Qual elemento HTML é usado para criar um parágrafo?",
-        value: [
-            "a) <paragraph>",
-            "b) <p>",
-            "c) <para>",
-            "d) <text>",
+        alternativa: [
+            "paragraph",
+            "p",
+            "para",
+            "text",
         ],
         answer: 1,
     },
     {
         title: "Qual atributo HTML é usado para definir uma classe que pode ser referenciada por CSS?",
-        value: [
-            "a) <class>",
-            "b) <css>",
-            "c) <classname>",
-            "d) <cl>",
+        alternativa: [
+            "class",
+            "css",
+            "classname",
+            "cl",
         ],
         answer: 0,
     },
     {
         title: "Qual tag HTML é usada para criar um botão clicável?",
-        value: [
-            "a) <button>",
-            "b) <input>",
-            "c) <submit>",
-            "d) <click>",
+        alternativa: [
+            "button",
+            "input",
+            "submit",
+            "click",
         ],
         answer: 0,
     },
     {
         title: "Qual elemento HTML é usado para inserir um espaço horizontal?",
-        value: [
-            "a) <space>",
-            "b) <br>",
-            "c) <hr>",
-            "d) <newline>",
+        alternativa: [
+            "space",
+            "br",
+            "hr",
+            "newline",
         ],
         answer: 2,
     }
 ];
-
-
-//Respostas:
-
-//1.  b) <a>
-//2.  b) alt
-//3.  a) <ul>
-//4.  a) <h1>
-//5.  a) style
-//6.  a) <table>
-//7.  b) <p>
-//8.  a) <class>
-//9.  a) <button>
-<<<<<<< HEAD
-//10. c) <hr>
-=======
-//10. c) <hr>
->>>>>>> 821f6a1011eb8a1374ed6a16e21ef09b8880c94d
