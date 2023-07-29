@@ -17,6 +17,7 @@
     <meta property="og:site_name" content="Quiz-Interativo" />
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/dark.css">
     <script type="module" src="./js/script.js" defer></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -49,29 +50,6 @@
                 </form>
             </div>
         </section>
-
-        <div class="container">
-            <h1>Quiz Interativo!</h1>
-            <h2>Coloque seu nome, escolha um tema e clique em iniciar.</h2>
-            <form id="quizForm">
-                <div class="form-group">
-                    <form action="">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
-                </div>
-                <div class="form-group"></div>
-                <label for="tema">Tema:</label>
-                <select name="tema">
-                    <option disabled selected></option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="js">Javascript</option>
-                </select>
-                <div class="form-group">
-                    <button type="submit" id="btn-iniciar">INICIAR</button>
-                </div>
-            </form>
-        </div>
 
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
@@ -128,22 +106,12 @@
 
     <footer>
         <div id="icones">
-            <button class="btn-cor" id="mudar-cor">
-                <span class="material-symbols-outlined">light_mode</span>
+            <button id="toggle-theme" class="dark-mode">
+                <span class="material-symbols-outlined">brightness_6</span>
             </button>
 
-            <audio id="audio" autoplay loop>
+            <audio id="audio" autoplay loop >
                 <source src="som/trilha.mp3" type="audio/mp3">
-                Seu navegador não possui o elemento audio!
-            </audio>
-
-            <button id="volumeUp" class="btn-musica">
-                <span class="material-symbols-outlined">volume_up</span>
-            </button>
-
-            <button id="volumeOff" class="btn-musica-off">
-
-            <audio id="audio" autoplay loop ><source src="som/trilha.mp3" type="audio/mp3">
                 Seu navegador não possui o elemento audio!
             </audio>
                 
@@ -152,10 +120,10 @@
             </button>
 
             <button id="volumeOff" class="btn-musica-off"> 
-
                 <span class="material-symbols-outlined">volume_off</span>
             </button>
         </div>
+    
     </footer>
 
 </body>
@@ -167,5 +135,5 @@
 <script src="js/timer.js"></script>
 <script src="js/script.js"></script>
 <script src="js/trilhaSonora.js"></script>
-
+<script src="js/modos.js"></script>
 </html>
