@@ -36,7 +36,7 @@ header {
     justify-content: center;
 }
 
-.container {
+.start-container {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
