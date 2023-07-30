@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,21 +16,18 @@
     <meta property="og:site_name" content="Quiz-Interativo" />
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/dark.css">
     <script type="module" src="./js/script.js" defer></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
 <body>
     <header>
         <span class="material-symbols-outlined">timer</span>
         <div id="cronometro" class="timer">00:00:00</div>
     </header>
-
     <main>
-
         <section class="start-container">
             <h2>Quiz - Interativo</h2>
             <p>Coloque seu nome, escolha um tema e clique em iniciar</p>
@@ -50,7 +46,7 @@
                 </form>
             </div>
         </section>
-
+        
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
         <div class="perguntas">
@@ -61,7 +57,6 @@
             <div class="resultados">
                 <table id="tabela-resultados">
                     <thead>
-<<<<<<< HEAD
                         <tr class="tabela-titulo">
                             <th>Nome</th>
                             <th>Tema</th>
@@ -85,64 +80,27 @@
 
             <div class="container-temas">
                 <div id="html">
-                    <h2 class="ranking">Quiz- Tema: HTML</h2>
-                    <ol id="position1"></ol>
+                    <h2 class="ranking">Tema: HTML</h2>
+                    <ol id="posicao1"></ol>
                 </div>
 
                 <div id="css">
-                    <h2 class="ranking">Quiz- Tema: CSS</h2>
-                    <ol id="position2"></ol>
+                    <h2 class="ranking">Tema: CSS</h2>
+                    <ol id="posicao2"></ol>
                 </div>
 
                 <div id="javascript">
-                    <h2 class="ranking">Quiz- Tema: Javascript</h2>
-                    <ol id="position3"></ol>
+                    <h2 class="ranking">Tema: Javascript</h2>
+                    <ol id="posicao3"></ol>
                 </div>
             </div>
         </div>
 
-=======
-                        <tr>
-                            <th>Nome</th>
-                            <th>Tema</th>
-                            <th>Tempo</th>
-                            <th>Pontuação</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-        <div class="media">
-            <p class="media-acertos"></p>
-            <p class="media-erros"></p>
-        </div>
-
-        <div class="container-temas">
-            <div id="html">
-                <h2 class="ranking">Quiz- Tema: HTML</h2>
-                <ol id="position1"></ol>
-            </div>
-
-            <div id="css">
-                <h2 class="ranking">Quiz- Tema: CSS</h2>
-                <ol id="position2">
-
-                </ol>
-            </div>
-
-            <div id="javascript">
-                <h2 class="ranking">Quiz- Tema: Javascript</h2>
-                <ol id="position3"></ol>
-            </div>
-        </div>
->>>>>>> c26be620b688d0f55a108456d1345fff65e41ebf
-
         <div class="btn-finalizar">
-            <button id="reiniciar" class="btnreiniciar">Reiniciar</button>
-            <button id="concluir" class="btnconcluir">Concluir</button>
-            <button id="continuar" class="btncontinuar">Continuar</button>
-        </div>
-
+            <button id="reiniciar" class="btnReiniciar">Reiniciar</button>
+            <button id="concluir" class="btnConcluir">Concluir</button>
+            <button id="continuar" class="btnContinuar">Continuar</button>
+            <button id="voltar" class="btnVoltar">Página Inicial</button>
         </div>
     </main>
 
@@ -151,31 +109,23 @@
             <button id="toggle-theme" class="dark-mode">
                 <span class="material-symbols-outlined">brightness_6</span>
             </button>
-
-            <audio id="audio" autoplay loop >
+            <audio id="audio" autoplay loop>
                 <source src="som/trilha.mp3" type="audio/mp3">
                 Seu navegador não possui o elemento audio!
             </audio>
-                
-            <button id= "volumeUp" class="btn-musica" >
+
+            <button id="volumeUp" class="btn-musica">
                 <span class="material-symbols-outlined">volume_up</span>
             </button>
 
-            <button id="volumeOff" class="btn-musica-off"> 
+            <button id="volumeOff" class="btn-musica-off">
                 <span class="material-symbols-outlined">volume_off</span>
             </button>
         </div>
-    
     </footer>
-
 </body>
 
-
-<!-- <script src="js/timer.js"></script> -->
-
-
-<script src="js/timer.js"></script>
-<script src="js/script.js"></script>
 <script src="js/trilhaSonora.js"></script>
 <script src="js/modos.js"></script>
+
 </html>
