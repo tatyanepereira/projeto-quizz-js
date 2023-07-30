@@ -27,11 +27,12 @@ const btnVoltar = document.querySelector("#voltar");
 const divResultados = document.querySelector(".resultados");
 const divMedia = document.querySelector(".media");
 const divConTemas = document.querySelector(".container-temas");
-
+let tempo = document.querySelector(".timer");
 let cronometroID;
 let segundos = 0;
 let minutos = 0;
 let horas = 0;
+
 
 // Função para formatar o tempo
 function formatarTempo(tempo) {
@@ -40,6 +41,7 @@ function formatarTempo(tempo) {
 
 // Função para atualizar o cronômetro
 function atualizarCronometro() {
+
     segundos++;
 
     if (segundos === 60) {
@@ -79,13 +81,15 @@ tema.addEventListener("change", () => {
 function mostrarTema(values) {
     listaQuestoes.innerHTML = "";
     let contador = 0;
+    tempo.style = "display: block";
     containerInicial.style = "display: none";
     perguntasContainer.style = "display: flex";
     mainInicial.style = "margin-top: var(--8x)";
     btnArea.style = "display: flex";
-    btnReiniciar.style = "display: block";
-    btnConcluir.style = "display: block";
     btnContinuar.style = "display: none";
+    btnReiniciar.style = "display: block";
+    btnConcluir.style = "display: none";
+    btnVoltar.style = "display: none";
     tituloTema.style = "display: block";
 
     for (let value of values) {
@@ -149,7 +153,6 @@ btnIniciar.addEventListener("click", () => {
     }
 });
 
-
 function BotaoReiniciar() {
     clearInterval(cronometroID);
     minutos = 0;
@@ -167,12 +170,10 @@ function BotaoReiniciar() {
     selecionarTema = "";
 }
 
-
 btnReiniciar.addEventListener("click", () => {
     BotaoReiniciar();
 });
 
-<<<<<<< HEAD
 //Botão Concluir
 
 let marcador = [];
@@ -239,7 +240,7 @@ function checarQuestoes(objeto) {
     console.log(`acertos: ${contagemAcertos}`);
 }
 
-//Checagem
+//Verificação
 let totalQuestoes = 10;
 let questoesRespondidas = 0;
 
@@ -301,5 +302,3 @@ function verificarRespostas() {
         }
     }
 }
-=======
->>>>>>> c26be620b688d0f55a108456d1345fff65e41ebf

@@ -177,6 +177,8 @@ table {
 
 .container-temas {
     display: none;
+}
 
-
+.timer {
+    display: none;
 }
