@@ -172,6 +172,7 @@ btnReiniciar.addEventListener("click", () => {
     BotaoReiniciar();
 });
 
+<<<<<<< HEAD
 //Botão Concluir
 
 let marcador = [];
@@ -300,3 +301,5 @@ function verificarRespostas() {
         }
     }
 }
+=======
+>>>>>>> c26be620b688d0f55a108456d1345fff65e41ebf
