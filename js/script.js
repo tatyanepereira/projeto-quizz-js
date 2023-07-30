@@ -172,3 +172,134 @@ btnReiniciar.addEventListener("click", () => {
     BotaoReiniciar();
 });
 
+<<<<<<< HEAD
+//Botão Concluir
+
+let marcador = [];
+let respostas = [];
+let temaEscolhido;
+let contagemAcertos = 0;
+
+let marcador0;
+let marcador1;
+let marcador2;
+let marcador3;
+let marcador4;
+let marcador5;
+let marcador6;
+let marcador7;
+let marcador8;
+let marcador9;
+
+btnConcluir.addEventListener("click", (ev) => {
+    btnConcluir.style.display = "none";
+    btnContinuar.style.display = "block";
+
+    ev.preventDefault();
+    //relogio = false;
+    marcador = [];
+    respostas = [];
+    temaEscolhido = valor;
+    marcador0 = document.querySelector('input[name="select0"]:checked').value;
+    marcador1 = document.querySelector('input[name="select1"]:checked').value;
+    marcador2 = document.querySelector('input[name="select2"]:checked').value;
+    marcador3 = document.querySelector('input[name="select3"]:checked').value;
+    marcador4 = document.querySelector('input[name="select4"]:checked').value;
+    marcador5 = document.querySelector('input[name="select5"]:checked').value;
+    marcador6 = document.querySelector('input[name="select6"]:checked').value;
+    marcador7 = document.querySelector('input[name="select7"]:checked').value;
+    marcador8 = document.querySelector('input[name="select8"]:checked').value;
+    marcador9 = document.querySelector('input[name="select9"]:checked').value;
+    verificarRespostas();
+    checarQuestoes(temaEscolhido);
+});
+
+function checarQuestoes(objeto) {
+    for (let i = 0; i < objeto.length; i++) {
+        marcador.push(objeto[i].answer);
+    }
+    console.log(marcador);
+    respostas.push(marcador0);
+    respostas.push(marcador1);
+    respostas.push(marcador2);
+    respostas.push(marcador3);
+    respostas.push(marcador4);
+    respostas.push(marcador5);
+    respostas.push(marcador6);
+    respostas.push(marcador7);
+    respostas.push(marcador8);
+    respostas.push(marcador9);
+    console.log(respostas);
+
+    for (let i = 0; i < respostas.length; i++) {
+        if (respostas[i] == marcador[i]) {
+            contagemAcertos++;
+        }
+    }
+    console.log(`acertos: ${contagemAcertos}`);
+}
+
+//Checagem
+let totalQuestoes = 10;
+let questoesRespondidas = 0;
+
+function verificarInputs() {
+    const inputs = document.querySelectorAll('input[type="radio"]');
+    let contadorMarcados = 0;
+
+    inputs.forEach((input) => {
+        if (input.checked) {
+            contadorMarcados++;
+        }
+    });
+
+    if (contadorMarcados === totalQuestoes) {
+        btnConcluir.style.display = "block";
+    } else {
+        btnConcluir.style.display = "none";
+    }
+}
+
+function asQuestoesRespondidas() {
+    questoesRespondidas++;
+
+    if (questoesRespondidas === totalQuestoes) {
+        btnConcluir.style.display = "block";
+    }
+}
+
+listaQuestoes.addEventListener("change", () => {
+    verificarInputs();
+});
+
+document.querySelectorAll('input[type="radio"]').forEach((input) => {
+    input.addEventListener("change", () => {
+        asQuestoesRespondidas();
+    });
+});
+
+//marcar questoes certas e erradas
+function verificarRespostas() {
+    const perguntasContainer = document.querySelectorAll(".perguntas-container");
+
+    for (let i = 0; i < perguntasContainer.length; i++) {
+        const inputSelecionado = perguntasContainer[i].querySelector(
+            'input[name="select' + i + '"]:checked'
+        );
+
+        if (inputSelecionado) {
+            const respostaSelecionada = inputSelecionado.value;
+            const respostaCorreta = valor[i].answer;
+
+            if (respostaSelecionada == respostaCorreta) {
+                perguntasContainer[i].style.border = "1px solid #55ce77";
+                perguntasContainer[i].style.backgroundColor = "#80ff99";
+            } else {
+                perguntasContainer[i].style.border = "1px solid #d36980";
+                perguntasContainer[i].style.backgroundColor = "#ff9999";
+            }
+        }
+    }
+}
+=======
+>>>>>>> c26be620b688d0f55a108456d1345fff65e41ebf
