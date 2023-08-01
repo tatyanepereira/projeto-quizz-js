@@ -27,6 +27,7 @@ const btnVoltar = document.querySelector("#voltar");
 const divResultados = document.querySelector(".resultados");
 const divMedia = document.querySelector(".media");
 const divConTemas = document.querySelector(".container-temas");
+let tempoIcone = document.querySelector("#icon-timer");
 let tempo = document.querySelector(".timer");
 let cronometroID;
 let segundos = 0;
@@ -81,10 +82,11 @@ tema.addEventListener("change", () => {
 function mostrarTema(values) {
     listaQuestoes.innerHTML = "";
     let contador = 0;
+    tempoIcone.style = "display: block";
     tempo.style = "display: block";
     containerInicial.style = "display: none";
     perguntasContainer.style = "display: flex";
-    mainInicial.style = "margin-top: var(--8x)";
+    mainInicial.style = "margin-top: 2rem";
     btnArea.style = "display: flex";
     btnContinuar.style = "display: none";
     btnReiniciar.style = "display: block";
@@ -161,7 +163,7 @@ function BotaoReiniciar() {
 
     //cronometroElement.style.display = "none";
     mainInicial.style.display = "flex";
-    mainInicial.style = "margin-top: var(--8x)";
+    mainInicial.style = "margin-top: 2rem";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
     btnArea.style.display = "none";
@@ -293,11 +295,11 @@ function verificarRespostas() {
             const respostaCorreta = valor[i].answer;
 
             if (respostaSelecionada == respostaCorreta) {
-                perguntasContainer[i].style.border = "1px solid #55ce77";
-                perguntasContainer[i].style.backgroundColor = "#80ff99";
+                perguntasContainer[i].style.border = "1px solid #white";;
+                perguntasContainer[i].style.backgroundColor = "var(--resposta-certa)";
             } else {
-                perguntasContainer[i].style.border = "1px solid #d36980";
-                perguntasContainer[i].style.backgroundColor = "#ff9999";
+                perguntasContainer[i].style.border = "1px solid #white";
+                perguntasContainer[i].style.backgroundColor = "var(--resposta-errada)";
             }
         }
     }

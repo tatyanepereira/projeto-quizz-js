@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,37 +17,46 @@
     <meta property="og:site_name" content="Quiz-Interativo" />
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <link rel="stylesheet" href="./css/dark.css" /> -->
     <script type="module" src="./js/script.js" defer></script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
     <header>
-        <span class="material-symbols-outlined">timer</span>
+        <span id="icon-timer" class="material-symbols-outlined">timer</span>
         <div id="cronometro" class="timer">00:00:00</div>
     </header>
+
     <main>
         <section class="start-container">
             <h2>Quiz - Interativo</h2>
             <p>Coloque seu nome, escolha um tema e clique em iniciar</p>
+
             <div class="init-form">
                 <form action="">
-                    <label for="name">Nome: </label>
-                    <input type="text" name="name" id="name" required />
-                    <label for="temas">Tema: </label>
-                    <select name="temas" id="temas" required>
-                        <option disabled selected value="0">Selecione um tema</option>
-                        <option value="html">Html</option>
-                        <option value="css">Css</option>
-                        <option value="javascript">Javascript</option>
-                    </select>
-                    <button id="btn-iniciar" type="button">Iniciar</button>
+                    <div>
+                        <label for="name">Nome: </label>
+                        <input type="text" name="name" id="name" required />
+                    </div>
+                    
+                    <div>
+                        <label for="temas">Tema: </label>
+                        <select name="temas" id="temas" required>
+                            <option disabled selected value="0"></option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">JavaScript</option>
+                        </select>
+                    </div>
+
+
+                    <button id="btn-iniciar" type="button">INICIAR</button>
                 </form>
             </div>
         </section>
-        
+
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
         <div class="perguntas">
@@ -109,7 +119,7 @@
             <button id="toggle-theme" class="dark-mode">
                 <span class="material-symbols-outlined">brightness_6</span>
             </button>
-            <audio id="audio" autoplay loop>
+            <audio id="audio" loop>
                 <source src="som/trilha.mp3" type="audio/mp3">
                 Seu navegador não possui o elemento audio!
             </audio>
@@ -126,6 +136,6 @@
 </body>
 
 <script src="js/trilhaSonora.js"></script>
-<script src="js/modos.js"></script>
+<script src="./js/modos.js"></script>
 
 </html>
