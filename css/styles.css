@@ -66,7 +66,7 @@ form {
     gap: 20px
 }
 
-.init-form{
+.init-form {
     padding: 10px;
     font-size: 16px;
 }
@@ -96,16 +96,91 @@ label {
 }
 
 
-
 #btn-iniciar {
-    background-color: var( --botao-iniciar);
-	color: var(--cor-primaria);
-	border-color: var(--cor-primaria);
+    background-color: var(--botao-iniciar);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
     border-radius: 10px;
-	height: 30px;
-	width: 90px;
-	text-shadow: none;
-    align-self:center;
+    height: 30px;
+    width: 90px;
+    text-shadow: none;
+    align-self: center;
+}
+
+
+.btn-finalizar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btnReiniciar {
+    background-color: var(--botao-iniciar);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    text-shadow: none;
+    align-self: flex-end;
+    justify-content:end;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btnConcluir {
+    background-color: var(--botao-iniciar);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    text-shadow: none;
+    align-self: center;
+    justify-content:center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btnVoltar {
+    background-color: var(--botao-iniciar);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    text-shadow: none;
+    align-self: flex-end;
+    justify-content:end;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btnContinuar {
+    background-color: var(--botao-iniciar);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    text-shadow: none;
+    align-self: flex-end;
+    justify-content:end;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+    right: 20px;
 }
 
 .btn-musica {
@@ -124,7 +199,7 @@ label {
     position: fixed;
     bottom: 10%;
     right: 2%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 10px;
     height: 200px;
@@ -138,7 +213,7 @@ label {
     border: 2px solid black;
 }
 
-#icones button:hover{
+#icones button:hover {
     background-color: white;
     scale: 1.2;
 }
@@ -186,6 +261,130 @@ table {
     display: none;
 }
 
-.timer, #icon-timer {
+.timer,
+#icon-timer {
     display: none;
+}
+
+
+
+.perguntas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    
+
+}
+
+
+.titulo-tema {
+
+    margin-bottom: 80px;
+}
+
+.perguntas-container {
+    margin-bottom: 8px;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.lista-organizacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.separate {
+    margin: 4px;
+    display: flex;
+    gap: 2px;
+}
+
+
+
+.container-resultados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--8x);
+}
+
+.resultados {
+    justify-content: center;
+    display: none;
+}
+
+#tabela-resultados {
+    width: 800px;
+    border-radius: var(--8x);
+    padding: var(--4x);
+}
+
+#tabela-resultados .linha-head {
+    font-size: var(--6x);
+}
+
+#tabela-resultados td {
+    text-align: center;
+    font-size: var(--5x);
+}
+
+.media {
+    display: none;
+    gap: var(--10x);
+}
+
+#media-acertos {
+    font-size: var(--5x);
+    color: var(--cor-contador-acertos);
+    font-weight: bold;
+}
+
+#media-erros {
+    font-size: var(--5x);
+    color: var(--cor-contador-erros);
+    font-weight: bold;
+}
+
+.container-temas {
+    gap: 12px;
+    display: none;
+    margin-bottom: 40px;
+}
+
+#html h2,
+#css h2,
+#javascript h2 {
+    font-size: 24px;
+}
+
+#html {
+    flex: 2;
+    margin: 20px;
+    font-size: 20px;
+}
+
+#css {
+    flex: 2;
+    margin: 20px;
+    font-size: 20px;
+}
+
+#javascript {
+    flex: 2;
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+.ranking {
+    counter-reset: posicao;
+}
+
+.tile-tema {
+    color: var(--texto-light);
+    margin-bottom: 16px;
 }
