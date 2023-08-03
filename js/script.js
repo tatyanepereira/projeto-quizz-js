@@ -420,3 +420,89 @@ export function medias() {
     averageRight.innerText = `Media de Acertos: ${mediaRN.toFixed(2)}`;
     averageWrong.innerText = `Media de Erros: ${mediaWN.toFixed(2)}`;
 }
+
+export function ranking() {
+    //Criar variáveis com as notas de cada tema do quiz
+    var listaHTML = resultadoArray.filter(function (player) {
+        return player.tema === "HTML";
+    });
+    var listaCSS = resultadoArray.filter(function (player) {
+        return player.tema === "CSS";
+    });
+    var listaJS = resultadoArray.filter(function (player) {
+        return player.tema === "JavaScript";
+    });
+
+    // Função para organizar cada uma das listas
+    function compare(a, b) {
+        return b.pontuacao - a.pontuacao;
+    }
+    listaHTML.sort(compare);
+    listaCSS.sort(compare);
+    listaJS.sort(compare);
+
+    // Adiciona na tabela os resultados
+    if (listaHTML.length >= 5) {
+        var tableHTML = document.querySelector(".tema1");
+        for (let i = 0; i < 5; i++) {
+            tableHTML.innerHTML += `
+            <ul>
+                <li>${listaHTML[i].nome} : Nota: ${listaHTML[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableHTML = document.querySelector(".tema1");
+        for (let i = 0; i < listaHTML.length; i++) {
+            tableHTML.innerHTML += `
+            <ul>
+                <li>${listaHTML[i].nome} : Nota: ${listaHTML[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+
+    if (listaCSS.length >= 5) {
+        var tableCSS = document.querySelector(".tema2");
+        for (let i = 0; i < 5; i++) {
+            tableCSS.innerHTML += `
+            <ul>
+                <li>${listaCSS[i].nome} : Nota: ${listaCSS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableCSS = document.querySelector(".tema2");
+        for (let i = 0; i < listaCSS.length; i++) {
+            tableCSS.innerHTML += `
+            <ul>
+                <li>${listaCSS[i].nome} : Nota: ${listaCSS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+
+    if (listaJS.length >= 5) {
+        var tableJS = document.querySelector(".tema3");
+        for (let i = 0; i < 5; i++) {
+            tableJS.innerHTML += `
+            <ul>
+                <li>${listaJS[i].nome} : Nota: ${listaJS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableJS = document.querySelector(".tema3");
+        for (let i = 0; i < listaJS.length; i++) {
+            tableJS.innerHTML += `
+            <ul>
+                <li>${listaJS[i].nome} : Nota: ${listaJS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+}
+
