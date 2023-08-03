@@ -25,8 +25,12 @@
 
 <body>
     <header>
-        <span id="icon-timer" class="material-symbols-outlined">timer</span>
-        <div id="cronometro" class="timer">00:00:00</div>
+        <div id="timer">
+            <div class="min">00</div>
+            <div class="separator">:</div>
+            <div class="seg">00</div>
+            <div class="milliseg"></div>
+        </div>
     </header>
 
     <main>
@@ -50,8 +54,6 @@
                             <option value="javascript">JavaScript</option>
                         </select>
                     </div>
-
-
                     <button id="btn-iniciar" type="button">INICIAR</button>
                 </form>
             </div>
@@ -60,57 +62,48 @@
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
         <div class="perguntas">
-            <ol id="lista-questoes"></ol>
+            <ul id="lista-questoes"></ul>
         </div>
         <!-- Resultados -->
         <div class="container-resultados">
-            <div class="resultados">
-                <table id="tabela-resultados">
-                    <thead>
-                        <tr class="tabela-titulo">
-                            <th>Nome</th>
-                            <th>Tema</th>
-                            <th>Tempo</th>
-                            <th>Data</th>
-                            <th>Pontuação</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabela-corpo">
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="tabela-resultados">
+                <thead>
+                    <tr class="tabela-titulo">
+                        <th>Nome</th>
+                        <th>Tema</th>
+                        <th>Tempo</th>
+                        <th>Data Quiz</th>
+                        <th>Pontuação</th>
+                    </tr>
+                </thead>
+                <tbody id="results_Usuario">
+                </tbody>
+            </table>
+        </div>
+        <div class="media">
+            <p id="media-acertos"></p>
+            <p id="media-erros"></p>
+        </div>
+        <div class="container-temas">
+            <div class="tema1">
+                <h2>Html</h2>
+                <ul id="posicao1"></ul>
             </div>
-
-            <div class="media">
-                <p class="media-acertos"></p>
-                <p class="media-erros"></p>
+            <div class="tema2">
+                <h2>Css</h2>
+                <ul id="posicao2"></ul>
             </div>
-
-            <div class="container-temas">
-                <div id="html">
-                    <h2 class="ranking">Tema: HTML</h2>
-                    <ol id="posicao1"></ol>
-                </div>
-
-                <div id="css">
-                    <h2 class="ranking">Tema: CSS</h2>
-                    <ol id="posicao2"></ol>
-                </div>
-
-                <div id="javascript">
-                    <h2 class="ranking">Tema: Javascript</h2>
-                    <ol id="posicao3"></ol>
-                </div>
-            </div>
+            <div class="tema3">
+                <h2>javascript</h2>
+                <ul id="posicao3"></ul>
+        </div>
         </div>
 
         <div class="btn-finalizar">
-            <button id="reiniciar" class="btnReiniciar">Reiniciar</button>
-            <button id="concluir" class="btnConcluir">Concluir</button>
-            <button id="continuar" class="btnContinuar">Continuar</button>
-            <button id="voltar" class="btnVoltar">Página Inicial</button>
+            <button id="reiniciar" class="btnGeral">Reiniciar</button>
+            <button id="concluir" class="btnGeral">Concluir</button>
+            <button id="continuar" class="btnGeral">Continuar</button>
+            <button id="voltar" class="btnGeral">Página Inicial</button>
         </div>
     </main>
 

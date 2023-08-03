@@ -1,7 +1,7 @@
 import { temahtml } from "./temahtml.js";
 import { temacss } from "./temacss.js";
 import { temajs } from "./temajs.js";
-import { participantes } from "./participantes.js";
+import { resultadoArray } from "./participantes.js";
 
 
 const mainInicial = document.querySelector("main");
@@ -24,54 +24,50 @@ const btnConcluir = document.querySelector("#concluir");
 const btnContinuar = document.querySelector("#continuar");
 const btnVoltar = document.querySelector("#voltar");
 
-const divResultados = document.querySelector(".resultados");
+const divResultados = document.querySelector(".container-resultados");
+const divTituloTabela = document.querySelector(".tabela-titulo");
 const divMedia = document.querySelector(".media");
 const divConTemas = document.querySelector(".container-temas");
 
-let tempoIcone = document.querySelector("#icon-timer");
-let tempo = document.querySelector(".timer");
-let cronometroID;
-let segundos = 0;
+const tempo = document.getElementById("timer");
+const tMinutos = document.querySelector(".min");
+const tSegundos = document.querySelector(".seg");
+const tMilissegundos = document.querySelector(".milliseg");
 let minutos = 0;
-let horas = 0;
+let segundos = 0;
+let milisegundos = 0;
+let pausar = false;
+let intervalo;
 
+console.log(pausar);
 
-// Função para formatar o tempo
-function formatarTempo(tempo) {
-    return tempo < 10 ? `0${tempo}` : tempo;
-}
+function cronometro() {
+    tempo.style.display = "flex";
 
-// Função para atualizar o cronômetro
-function atualizarCronometro() {
+    intervalo = setInterval(() => {
+        if (!pausar) {
+            milisegundos += 10;
 
-    segundos++;
+            if (milisegundos === 1000) {
+                segundos++;
+                milisegundos = 0;
+            }
 
-    if (segundos === 60) {
-        segundos = 0;
-        minutos++;
+            if (segundos === 60) {
+                minutos++;
+                segundos = 0;
+            }
 
-        if (minutos === 60) {
-            minutos = 0;
-            horas++;
+            tMinutos.textContent = timer(minutos);
+            tSegundos.textContent = timer(segundos);
         }
-    }
-
-    const cronometroElement = document.getElementById("cronometro");
-    cronometroElement.innerText = `${formatarTempo(horas)}:${formatarTempo(minutos)}:${formatarTempo(segundos)}`;
+    }, 10);
 }
 
-// Função para iniciar o cronômetro
-function iniciarCronometro() {
-    cronometroID = setInterval(atualizarCronometro, 1000);
+function timer(time) {
+    return time < 10 ? `0${time}` : time;
 }
 
-function limparCronometro() {
-    clearInterval(cronometroID);
-    cronometroAtivo = false;
-    segundos = 0;
-    minutos = 0;
-    horas = 0;
-}
 
 document.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {
@@ -87,11 +83,10 @@ tema.addEventListener("change", () => {
 function mostrarTema(values) {
     listaQuestoes.innerHTML = "";
     let contador = 0;
-    tempoIcone.style = "display: block";
     tempo.style = "display: block";
     containerInicial.style = "display: none";
     perguntasContainer.style = "display: flex";
-    mainInicial.style = "margin-top: 2rem";
+    mainInicial.style = "margin-top: var(--8x)";
     btnArea.style = "display: flex";
     btnContinuar.style = "display: none";
     btnReiniciar.style = "display: block";
@@ -99,11 +94,12 @@ function mostrarTema(values) {
     btnVoltar.style = "display: none";
     tituloTema.style = "display: block";
 
+
     for (let value of values) {
         listaQuestoes.innerHTML += `
             <li class="perguntas-container">
-            <div class="e-title">${value.title}</div>
             <div class="lista-organizacao">
+            <h2 class="e-title"> ${contador+1}) ${value.title}</h2>
                 <div class="separate">
                     <input type="radio" name="${"select" + contador
             }" value="0"><label>${value.alternativa[0]}</label>
@@ -136,7 +132,7 @@ btnIniciar.addEventListener("click", () => {
         valor = temahtml;
         tituloTema.innerText = "Html";
         mostrarTema(valor);
-        iniciarCronometro();
+        cronometro();
     } else if (
         selecionarTema === "css" &&
         nome.value != "" &&
@@ -145,7 +141,7 @@ btnIniciar.addEventListener("click", () => {
         valor = temacss;
         tituloTema.innerText = "Css";
         mostrarTema(valor);
-        iniciarCronometro();
+        cronometro();
     } else if (
         selecionarTema === "javascript" &&
         nome.value != "" &&
@@ -154,21 +150,25 @@ btnIniciar.addEventListener("click", () => {
         valor = temajs;
         tituloTema.innerText = "Javascript";
         mostrarTema(valor);
-        iniciarCronometro();
+        cronometro();
     } else {
         console.log(`Não funcionou...`);
     }
 });
 
 function BotaoReiniciar() {
-    clearInterval(cronometroID);
+    clearInterval(intervalo);
+    milisegundos = 0;
     minutos = 0;
     segundos = 0;
-    horas = 0;
 
-    //cronometroElement.style.display = "none";
+    tMinutos.textContent = "00";
+    tSegundos.textContent = "00";
+
+
+    tempo.style.display = "none";
     mainInicial.style.display = "flex";
-    mainInicial.style = "margin-top: 2rem";
+    mainInicial.style = "margin-top: var(--8x)";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
     btnArea.style.display = "none";
@@ -202,9 +202,10 @@ let marcador9;
 btnConcluir.addEventListener("click", (ev) => {
     btnConcluir.style.display = "none";
     btnContinuar.style.display = "block";
+    //tempo.style.display = "none";
 
     ev.preventDefault();
-    //relogio = false;
+    pausar = true;
     marcador = [];
     respostas = [];
     temaEscolhido = valor;
@@ -220,9 +221,11 @@ btnConcluir.addEventListener("click", (ev) => {
     marcador9 = document.querySelector('input[name="select9"]:checked').value;
     verificarRespostas();
     checarQuestoes(temaEscolhido);
+
 });
 
 function checarQuestoes(objeto) {
+    contagemAcertos = 0;
     for (let i = 0; i < objeto.length; i++) {
         marcador.push(objeto[i].answer);
     }
@@ -245,6 +248,7 @@ function checarQuestoes(objeto) {
         }
     }
     console.log(`acertos: ${contagemAcertos}`);
+
 }
 
 //Verificação
@@ -253,15 +257,15 @@ let questoesRespondidas = 0;
 
 function verificarInputs() {
     const inputs = document.querySelectorAll('input[type="radio"]');
-    let contadorMarcados = 0;
+    let contador = 0;
 
     inputs.forEach((input) => {
         if (input.checked) {
-            contadorMarcados++;
+            contador++;
         }
     });
 
-    if (contadorMarcados === totalQuestoes) {
+    if (contador === totalQuestoes) {
         btnConcluir.style.display = "block";
     } else {
         btnConcluir.style.display = "none";
@@ -300,139 +304,45 @@ function verificarRespostas() {
             const respostaCorreta = valor[i].answer;
 
             if (respostaSelecionada == respostaCorreta) {
-                perguntasContainer[i].style.border = "1px solid #white";;
-                perguntasContainer[i].style.backgroundColor = "var(--resposta-certa)";
+                perguntasContainer[i].style.border = "1px solid #55ce77";
+                perguntasContainer[i].style.backgroundColor = "#80ff99";
             } else {
-                perguntasContainer[i].style.border = "1px solid #white";
-                perguntasContainer[i].style.backgroundColor = "var(--resposta-errada)";
+                perguntasContainer[i].style.border = "1px solid #d36980";
+                perguntasContainer[i].style.backgroundColor = "#ff9999";
             }
         }
     }
 }
 
-
 //Botão continuar
 
-const posicao1 = document.getElementById("posicao1");
-const posicao2 = document.getElementById("posicao2");
-const posicao3 = document.getElementById("posicao3");
+const posicao1 = document.getElementById("tema1");
+const posicao2 = document.getElementById("tema2");
+const posicao3 = document.getElementById("tema3");
 const corpoTabela = document.getElementById("corpo-tabela");
 
 const dataAtual = new Date();
 
-const ano = dataAtual.getFullYear();
-const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
-const dia = String(dataAtual.getDate()).padStart(2, '0');
-const dataFormatada = `${ano}-${mes}-${dia}`;
+
+//const dia = String(dataAtual.getDate()).padStart(2, '0');
+//const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+//const ano = dataAtual.getFullYear();
+//const hora = String(dataAtual.getHours()).padStart(2, '0');
+//const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
+//const dataFormatada = `${dia}-${mes}-${ano} ${hora}:${minuto}`;
 
 
 function BotaoContinuar() {
-    //limparCronometro();
     tempo.style.display = "none";
-
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
+    divTituloTabela.style.display = "block";
 
-    const minutosFormatados = formatarTempo(minutos);
-    const segundosFormatados = formatarTempo(segundos);
+    exibirResultados();
+    medias();
+    ranking(resultadoArray);
+};
 
-    const dataAtual = new Date();
-    const ano = dataAtual.getFullYear();
-    const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
-    const dia = String(dataAtual.getDate()).padStart(2, '0');
-    const hora = String(dataAtual.getHours()).padStart(2, '0');
-    const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
-    const dataFormatada = `${dia}-${mes}-${ano} ${hora}:${minuto}`;
-
-    participantes.push({
-        nome: nome.value,
-        tema: tituloTema.innerHTML,
-        minutos: minutosFormatados,
-        segundos: segundosFormatados,
-        data: dataFormatada,
-        pontuacao: contagemAcertos,
-
-    });
-
-    preencherContTemas();
-    organizarParticipantes(participantes);
-    calcularMedias(contagemAcertos);
-}
-
-function organizarParticipantes(participantes) {
-    participantes.sort((a, b) => {
-        if (a.pontuacao === b.pontuacao) {
-            const tempoA = a.minutos * 60 + a.segundos;
-            const tempoB = b.minutos * 60 + b.segundos;
-
-            if (tempoA === tempoB) {
-                return new Date(a.data) - new Date(b.data);
-            } else {
-                return tempoA - tempoB;
-            }
-        } else {
-            return b.pontuacao - a.pontuacao;
-        }
-    });
-
-    popularTabela();
-}
-
-function popularTabela() {
-
-    while (corpoTabela.firstChild) {
-        corpoTabela.removeChild(corpoTabela.firstChild);
-    }
-
-    participantes.forEach((participantes) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-        <td>${participantes.nome}</td>
-        <td>${participantes.tema}</td>
-        <td>${participantes.minutos}:${participantes.segundos}</td>
-        <td>${participantes.data}</td>
-        <td>${participantes.pontuacao}/10</td>
-        `;
-        corpoTabela.appendChild(row);
-    });
-
-    console.log(participantes);
-    preencherContTemas();
-}
-
-function preencherContTemas(valor) {
-    console.log(tituloTema)
-    for (let i = 0; i < 5; i++) {
-        if (tituloTema.innerHTML == "Html") {
-            posicao1.innerHTML = `
-        <li class="position">Beatriz</li> 
-        <li class="position">Domenica</li> 
-        <li class="position">Gabriela</li> 
-        <li class="position">Lucas</li> 
-        <li class="position">Tatiane</li> 
-        <li class="position">${nome.value}</li>      
-        `;
-        } else if (tituloTema.innerHTML == "Css") {
-            posicao2.innerHTML = `
-        <li class="position">Beatriz</li> 
-        <li class="position">Domenica</li> 
-        <li class="position">Gabriela</li> 
-        <li class="position">Lucas</li> 
-        <li class="position">Tatiane</li> 
-        <li class="position">${nome.value}</li>       
-        `;
-        } else if (tituloTema.innerHTML == "Javascript") {
-            posicao3.innerHTML = `
-        <li class="position">Beatriz</li> 
-        <li class="position">Domenica</li> 
-        <li class="position">Gabriela</li> 
-        <li class="position">Lucas</li> 
-        <li class="position">Tatiane</li> 
-        <li class="position">${nome.value}</li>       
-        `;
-        }
-    }
-}
 
 btnContinuar.addEventListener("click", () => {
     btnContinuar.style.display = "none";
@@ -449,10 +359,12 @@ btnContinuar.addEventListener("click", () => {
 // Botão voltar
 
 function BotaoVoltar() {
-    clearInterval(cronometroID);
+    clearInterval(intervalo);
+    milisegundos = 0;
     minutos = 0;
     segundos = 0;
-    horas = 0;
+    tMinutos.textContent = "00";
+    tSegundos.textContent = "00";
 
     tempo.style.display = "none";
     mainInicial.style.display = "flex";
@@ -468,15 +380,12 @@ function BotaoVoltar() {
     nome.value = "";
     tema.value = "0";
     selecionarTema = "";
-    contagemAcertos = 0;
-    totalAcertos = 0;
-    qtdPartidasFinalizadas = 0;
-
+    limparTabelasRanking();
 }
 
 
 btnVoltar.addEventListener("click", () => {
-    //cronometroAtivo = false;
+    pausar = false;
     tempo.style.display = "none";
     BotaoVoltar();
 });
@@ -484,49 +393,30 @@ btnVoltar.addEventListener("click", () => {
 
 
 
-let totalAcertos = 0;
-let qtdPartidasFinalizadas = 0;
-let chamada = 1;
-let mediaAcertos = 0;
-let mediaErros = 0;
-const PONTUACAO_MAXIMA = 10;
+export function exibirResultados() {
+    var table = document.querySelector("#results_Usuario");
+    table.innerHTML = "";
 
-function recebePontuacao(pessoas) {
-    // Somatória da quantidade de acertos por pessoa e soma a quantidade de partidas realizadas, que estão no array pessoas.
-    for (let pessoa of pessoas) {
-        totalAcertos += pessoa.pontuacao;
-        qtdPartidasFinalizadas++;
+    for (let user of resultadoArray) {
+        table.innerHTML += `
+        <tr>
+            <td>${user.nome}</td>
+            <td>${user.tema}</td>
+            <td>${user.minutos}:${user.segundos}</td>
+            <td>${user.data}</td>
+            <td>${user.pontuacao}</td>
+        </tr>
+        `;
     }
-    return totalAcertos;
 }
 
-function calcularMedias(contagemAcertos) {
-    // Somatória dos acertos de todas as partidas realizadas e posteriormente realiza o cálculo das médias de acertos e erros.
-    totalAcertos += contagemAcertos;
-    qtdPartidasFinalizadas++;
+export function medias() {
+    let mediaRN = resultadoArray.reduce((sum, user) => sum + user.pontuacao, 0) / resultadoArray.length;
+    let mediaWN = resultadoArray.reduce((sum, user) => sum + (10 - user.pontuacao), 0) / resultadoArray.length;
 
-    mediaAcertos = (totalAcertos / qtdPartidasFinalizadas);
-    mediaErros = (PONTUACAO_MAXIMA - mediaAcertos);
+    let averageRight = document.querySelector("#media-acertos");
+    let averageWrong = document.querySelector("#media-erros");
 
-    document.getElementById("media-acertos").innerHTML = `<p>Média de acertos: ${mediaAcertos.toFixed(1).replace(".", ",")}</p>`;
-    document.getElementById("media-erros").innerHTML = `<p>Média de erros: ${mediaErros.toFixed(1).replace(".", ",")}</p>`;
+    averageRight.innerText = `Media de Acertos: ${mediaRN.toFixed(2)}`;
+    averageWrong.innerText = `Media de Erros: ${mediaWN.toFixed(2)}`;
 }
-
-const contagemAtualizadaAcertos = new Event('contagemAtualizada');
-function notificarAcertos() {
-    // notifica que houve uma atualização de contagemAcertos da função checarQuestoes().
-    document.dispatchEvent(contagemAtualizadaAcertos);
-}
-
-document.addEventListener('contagemAtualizada', () => {
-    // O código dentro desta função será executado quando a contagemAcertos da partida for atualizada
-    if (chamada === 1) {    // Será executado somente na primeira partida
-        totalAcertos = recebePontuacao(pessoas);
-        calcularMedias(contagemAcertos);
-        chamada++;
-    } else {    // Será executado nas partidas seguintes
-        calcularMedias(contagemAcertos);
-    }
-});
-
-
