@@ -99,7 +99,7 @@ function mostrarTema(values) {
         listaQuestoes.innerHTML += `
             <li class="perguntas-container">
             <div class="lista-organizacao">
-            <h2 class="e-title"> ${contador+1}) ${value.title}</h2>
+            <h2 class="e-title"> ${contador + 1}) ${value.title}</h2>
                 <div class="separate">
                     <input type="radio" name="${"select" + contador
             }" value="0"><label>${value.alternativa[0]}</label>
@@ -504,5 +504,14 @@ export function ranking() {
             `;
         }
     }
+}
+function limparTabelasRanking() {
+    const tableHTML = document.querySelector(".tema1");
+    const tableCSS = document.querySelector(".tema2");
+    const tableJS = document.querySelector(".tema3");
+
+    tableHTML.innerHTML = "";
+    tableCSS.innerHTML = "";
+    tableJS.innerHTML = "";
 }
 
