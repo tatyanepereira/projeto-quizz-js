@@ -12,7 +12,6 @@
     --background-tabela-td: rgb(161, 157, 218);
 }
 
-
 body.dark-mode {
     --cor-primaria: #ffffff;
     --cor-secundaria: #161616c4;
@@ -23,7 +22,6 @@ body.dark-mode {
     --botao-iniciar: #000000;
     --black: #000000;
 }
-
 
 * {
     margin: 0;
@@ -101,7 +99,6 @@ label {
     font-size: 14px;
 }
 
-
 #btn-iniciar {
     background-color: var(--botao-iniciar);
     color: var(--cor-primaria);
@@ -112,7 +109,6 @@ label {
     text-shadow: none;
     align-self: center;
 }
-
 
 .btn-finalizar {
     display: flex;
@@ -137,7 +133,6 @@ label {
     bottom: 20px;
     right: 20px;
 }
-
 
 .btn-musica {
     position: absolute;
@@ -191,8 +186,6 @@ body .perguntas{
     border-radius: 10px;
 }
 
-
-
 table {
     width: 100%;
     margin-top: 10px;
@@ -232,15 +225,12 @@ table {
     display: none;
 }
 
-
-
 #timer {
     font-size: 24px;
     display: none;
     justify-content: center;
     align-items: center;
 }
-
 
 .perguntas {
     display: flex;
@@ -251,7 +241,6 @@ table {
     align-items: center;
 
 }
-
 
 .titulo-tema {
     margin-bottom: 80px;
@@ -269,14 +258,11 @@ table {
     align-items: flex-start;
 }
 
-
 .separate {
     margin: 4px;
     display: flex;
     gap: 2px;
 }
-
-
 
 .container-resultados {
     display: flex;
@@ -304,7 +290,6 @@ table {
     background-color: var(--background-tabela-td);
     border: 4px;
     padding: 300px;
-
 }
 
 #results_Usuario td {
@@ -316,10 +301,7 @@ table {
     border: 1px solid #cccccc;
     padding: 10px;
     text-align: center;
-
 }
-
-
 
 #results_Usuario th {
     padding: 10px;
@@ -339,7 +321,6 @@ table {
     font-size: 20px;
     font-weight: bold;
 }
-
 
 .container-temas {
     gap: 12px;
@@ -374,7 +355,6 @@ table {
     font-size: 8px;
 }
 
-
 .ranking {
     counter-reset: posicao;
 }
@@ -388,14 +368,10 @@ ul {
     list-style: none;
 }
 
-
-
 .media {
     display: none;
     gap:40px;
 }
-
-
 
 .container-temas {
     gap: 12px;

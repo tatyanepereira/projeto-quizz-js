@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,29 +21,24 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
 <body>
     <header>
         <div id="timer">
             <div class="min">00</div>
             <div class="separator">:</div>
             <div class="seg">00</div>
-            
         </div>
     </header>
-
     <main>
         <section class="start-container">
             <h2 class="tituloInicial">Quiz - Interativo</h2>
             <p>Coloque seu nome, escolha um tema e clique em iniciar</p>
-
             <div class="init-form">
                 <form id="form-quiz">
                     <div>
                         <label for="name">Nome: </label>
                         <input type="text" name="name" id="name" required />
                     </div>
-                    
                     <div>
                         <label for="temas">Tema: </label>
                         <select name="temas" id="temas" required>
@@ -58,7 +52,6 @@
                 </form>
             </div>
         </section>
-
         <!-- Perguntas -->
         <h1 class="titulo-tema"></h1>
         <div class="perguntas">
@@ -87,7 +80,6 @@
                 <ul id="posicao3"></ul>
         </div>
         </div>
-
         <div class="btn-finalizar">
             <button id="reiniciar" class="btnGeral">Reiniciar</button>
             <button id="concluir" class="btnGeral">Concluir</button>
@@ -95,7 +87,6 @@
             <button id="voltar" class="btnGeral">Página Inicial</button>
         </div>
     </main>
-
     <footer>
         <div id="icones">
             <button id="toggle-theme" class="dark-mode">
@@ -105,19 +96,15 @@
                 <source src="som/trilha.mp3" type="audio/mp3">
                 Seu navegador não possui o elemento audio!
             </audio>
-
             <button id="volumeUp" class="btn-musica">
                 <span class="material-symbols-outlined">volume_up</span>
             </button>
-
             <button id="volumeOff" class="btn-musica-off">
                 <span class="material-symbols-outlined">volume_off</span>
             </button>
         </div>
     </footer>
 </body>
-
 <script src="js/trilhaSonora.js"></script>
 <script src="./js/modos.js"></script>
-
 </html>
