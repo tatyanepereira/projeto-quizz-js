@@ -96,7 +96,7 @@ function mostrarTema(values) {
         listaQuestoes.innerHTML += `
             <li class="perguntas-container">
             <div class="lista-organizacao">
-            <h2 class="e-title"> ${contador+1}) ${value.title}</h2>
+            <h2 class="e-title"> ${contador + 1}) ${value.title}</h2>
                 <div class="separate">
                     <input type="radio" name="${"select" + contador
             }" value="0"><label>${value.alternativa[0]}</label>
@@ -431,8 +431,6 @@ export function medias() {
     averageWrong.innerText = `Media de Erros: ${mediaWN.toFixed(2)}`;
 }
 
-
-
 export function ranking() {
     //Criar variáveis com as notas de cada tema do quiz
     var listaHTML = resultadoArray.filter(function (player) {
@@ -456,7 +454,9 @@ export function ranking() {
     // Adiciona na tabela os resultados
     if (listaHTML.length >= 5) {
         var tableHTML = document.querySelector(".tema1");
+
         tableHTML.innerHTML = `<h2>Html</h2>`
+
         for (let i = 0; i < 5; i++) {
             tableHTML.innerHTML += `
             <ul>
@@ -467,7 +467,9 @@ export function ranking() {
     }
     else {
         var tableHTML = document.querySelector(".tema1");
+
         tableHTML.innerHTML = `<h2>Html</h2>`
+
         for (let i = 0; i < listaHTML.length; i++) {
             tableHTML.innerHTML += `
             <ul>
@@ -479,7 +481,9 @@ export function ranking() {
 
     if (listaCSS.length >= 5) {
         var tableCSS = document.querySelector(".tema2");
+
         tableCSS.innerHTML = `<h2>Css</h2>`
+
         for (let i = 0; i < 5; i++) {
             tableCSS.innerHTML += `
             <ul>
@@ -490,7 +494,9 @@ export function ranking() {
     }
     else {
         var tableCSS = document.querySelector(".tema2");
+
         tableCSS.innerHTML = `<h2>Css</h2>`
+
         for (let i = 0; i < listaCSS.length; i++) {
             tableCSS.innerHTML += `
             <ul>
@@ -502,7 +508,9 @@ export function ranking() {
 
     if (listaJS.length >= 5) {
         var tableJS = document.querySelector(".tema3");
+
         tableJS.innerHTML = `<h2>Javascript</h2>`
+
         for (let i = 0; i < 5; i++) {
             tableJS.innerHTML += `
             <ul>
@@ -513,7 +521,9 @@ export function ranking() {
     }
     else {
         var tableJS = document.querySelector(".tema3");
+
         tableJS.innerHTML = `<h2>Javascript</h2>`
+
         for (let i = 0; i < listaJS.length; i++) {
             tableJS.innerHTML += `
             <ul>
@@ -524,6 +534,7 @@ export function ranking() {
     }
 }
 
+
 function limparTabelasRanking() {
     const tableHTML = document.querySelector(".tema1");
     const tableCSS = document.querySelector(".tema2");
@@ -533,3 +544,4 @@ function limparTabelasRanking() {
     tableCSS.innerHTML = "";
     tableJS.innerHTML = "";
 }
+
