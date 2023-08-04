@@ -29,13 +29,13 @@
             <div class="min">00</div>
             <div class="separator">:</div>
             <div class="seg">00</div>
-            <div class="milliseg"></div>
+            
         </div>
     </header>
 
     <main>
         <section class="start-container">
-            <h2>Quiz - Interativo</h2>
+            <h2 class="tituloInicial">Quiz - Interativo</h2>
             <p>Coloque seu nome, escolha um tema e clique em iniciar</p>
 
             <div class="init-form">
@@ -66,20 +66,9 @@
         </div>
         <!-- Resultados -->
         <div class="container-resultados">
-            <table class="tabela-resultados">
-                <thead>
-                    <tr class="tabela-titulo">
-                        <th>Nome</th>
-                        <th>Tema</th>
-                        <th>Tempo</th>
-                        <th>Data Quiz</th>
-                        <th>Pontuação</th>
-                    </tr>
-                </thead>
-                <tbody id="results_Usuario">
-                </tbody>
-            </table>
-        </div>
+            <div class="tabela-resultados"></div>
+                <table id="results_Usuario"></table>
+            </div>
         <div class="media">
             <p id="media-acertos"></p>
             <p id="media-erros"></p>

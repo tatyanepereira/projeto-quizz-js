@@ -37,7 +37,7 @@ export const temajs = [
     },
     {
         title: "Qual é a forma correta de comentar uma única linha de código em JavaScript?",
-        alternativa: ["<!-- Este é um comentário -->", "// Este é um comentário", "/* Este é um comentário */", "Este é um comentário"],
+        alternativa: ["&lt;!-- Este é um comentário --&gt;", "// Este é um comentário", "/* Este é um comentário */", "Este é um comentário"],
         answer: 1,
     },
     {

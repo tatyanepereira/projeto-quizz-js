@@ -25,14 +25,12 @@ const btnContinuar = document.querySelector("#continuar");
 const btnVoltar = document.querySelector("#voltar");
 
 const divResultados = document.querySelector(".container-resultados");
-const divTituloTabela = document.querySelector(".tabela-titulo");
 const divMedia = document.querySelector(".media");
 const divConTemas = document.querySelector(".container-temas");
 
 const tempo = document.getElementById("timer");
 const tMinutos = document.querySelector(".min");
 const tSegundos = document.querySelector(".seg");
-const tMilissegundos = document.querySelector(".milliseg");
 let minutos = 0;
 let segundos = 0;
 let milisegundos = 0;
@@ -69,11 +67,11 @@ function timer(time) {
 }
 
 
-document.addEventListener("keydown", function (e) {
-    if (e.keyCode === 13) {
-        e.preventDefault();
-    }
-});
+//document.addEventListener("keydown", function (e) {
+  //  if (e.keyCode === 13) {
+  //      e.preventDefault();
+ //   }
+//});
 
 //Botão Iniciar
 tema.addEventListener("change", () => {
@@ -86,7 +84,6 @@ function mostrarTema(values) {
     tempo.style = "display: block";
     containerInicial.style = "display: none";
     perguntasContainer.style = "display: flex";
-    mainInicial.style = "margin-top: var(--8x)";
     btnArea.style = "display: flex";
     btnContinuar.style = "display: none";
     btnReiniciar.style = "display: block";
@@ -165,10 +162,8 @@ function BotaoReiniciar() {
     tMinutos.textContent = "00";
     tSegundos.textContent = "00";
 
-
     tempo.style.display = "none";
     mainInicial.style.display = "flex";
-    mainInicial.style = "margin-top: var(--8x)";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
     btnArea.style.display = "none";
@@ -305,10 +300,10 @@ function verificarRespostas() {
 
             if (respostaSelecionada == respostaCorreta) {
                 perguntasContainer[i].style.border = "1px solid #55ce77";
-                perguntasContainer[i].style.backgroundColor = "#80ff99";
+                perguntasContainer[i].style.backgroundColor = "var(--resposta-certa)";
             } else {
                 perguntasContainer[i].style.border = "1px solid #d36980";
-                perguntasContainer[i].style.backgroundColor = "#ff9999";
+                perguntasContainer[i].style.backgroundColor = "var(--resposta-errada)";
             }
         }
     }
@@ -324,19 +319,27 @@ const corpoTabela = document.getElementById("corpo-tabela");
 const dataAtual = new Date();
 
 
-//const dia = String(dataAtual.getDate()).padStart(2, '0');
-//const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
-//const ano = dataAtual.getFullYear();
-//const hora = String(dataAtual.getHours()).padStart(2, '0');
-//const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
-//const dataFormatada = `${dia}-${mes}-${ano} ${hora}:${minuto}`;
+const dia = String(dataAtual.getDate()).padStart(2, '0');
+const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+const ano = dataAtual.getFullYear();
+const hora = String(dataAtual.getHours()).padStart(2, '0');
+const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
+const dataFormatada = `${dia}/${mes}/${ano} ${hora}:${minuto}`;
 
 
 function BotaoContinuar() {
     tempo.style.display = "none";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
-    divTituloTabela.style.display = "block";
+    //divTituloTabela.style.display = "block";
+
+    resultadoArray.push({
+        nome: nome.value,
+        tema: tituloTema.innerHTML,
+        minutos: timer(minutos) + ":"+ timer(segundos),
+        data: dataFormatada,
+        pontuacao: contagemAcertos
+    });
 
     exibirResultados();
     medias();
@@ -368,7 +371,6 @@ function BotaoVoltar() {
 
     tempo.style.display = "none";
     mainInicial.style.display = "flex";
-    mainInicial.style = "margin-top: 7%";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
     btnArea.style.display = "none";
@@ -392,22 +394,30 @@ btnVoltar.addEventListener("click", () => {
 
 
 
-
 export function exibirResultados() {
     var table = document.querySelector("#results_Usuario");
+    table.style.display = "block";
     table.innerHTML = "";
+    let conteudoTabela = `    <tr>
+    <th>Nome</th>
+    <th>Tema</th>
+    <th>Tempo</th>
+    <th>Data</th>
+    <th>Pontuação</th>
+</tr>`
 
     for (let user of resultadoArray) {
-        table.innerHTML += `
-        <tr>
+        conteudoTabela += `
+        <tr class="tabela-corpo">
             <td>${user.nome}</td>
             <td>${user.tema}</td>
-            <td>${user.minutos}:${user.segundos}</td>
+            <td>${user.minutos}</td>
             <td>${user.data}</td>
             <td>${user.pontuacao}</td>
         </tr>
         `;
     }
+    table.innerHTML = conteudoTabela
 }
 
 export function medias() {
@@ -419,4 +429,107 @@ export function medias() {
 
     averageRight.innerText = `Media de Acertos: ${mediaRN.toFixed(2)}`;
     averageWrong.innerText = `Media de Erros: ${mediaWN.toFixed(2)}`;
+}
+
+
+
+export function ranking() {
+    //Criar variáveis com as notas de cada tema do quiz
+    var listaHTML = resultadoArray.filter(function (player) {
+        return player.tema === "HTML";
+    });
+    var listaCSS = resultadoArray.filter(function (player) {
+        return player.tema === "CSS";
+    });
+    var listaJS = resultadoArray.filter(function (player) {
+        return player.tema === "JavaScript";
+    });
+
+    // Função para organizar cada uma das listas
+    function compare(a, b) {
+        return b.pontuacao - a.pontuacao;
+    }
+    listaHTML.sort(compare);
+    listaCSS.sort(compare);
+    listaJS.sort(compare);
+
+    // Adiciona na tabela os resultados
+    if (listaHTML.length >= 5) {
+        var tableHTML = document.querySelector(".tema1");
+        tableHTML.innerHTML = `<h2>Html</h2>`
+        for (let i = 0; i < 5; i++) {
+            tableHTML.innerHTML += `
+            <ul>
+                <li>${listaHTML[i].nome} : Nota: ${listaHTML[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableHTML = document.querySelector(".tema1");
+        tableHTML.innerHTML = `<h2>Html</h2>`
+        for (let i = 0; i < listaHTML.length; i++) {
+            tableHTML.innerHTML += `
+            <ul>
+                <li>${listaHTML[i].nome} : Nota: ${listaHTML[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+
+    if (listaCSS.length >= 5) {
+        var tableCSS = document.querySelector(".tema2");
+        tableCSS.innerHTML = `<h2>Css</h2>`
+        for (let i = 0; i < 5; i++) {
+            tableCSS.innerHTML += `
+            <ul>
+                <li>${listaCSS[i].nome} : Nota: ${listaCSS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableCSS = document.querySelector(".tema2");
+        tableCSS.innerHTML = `<h2>Css</h2>`
+        for (let i = 0; i < listaCSS.length; i++) {
+            tableCSS.innerHTML += `
+            <ul>
+                <li>${listaCSS[i].nome} : Nota: ${listaCSS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+
+    if (listaJS.length >= 5) {
+        var tableJS = document.querySelector(".tema3");
+        tableJS.innerHTML = `<h2>Javascript</h2>`
+        for (let i = 0; i < 5; i++) {
+            tableJS.innerHTML += `
+            <ul>
+                <li>${listaJS[i].nome} : Nota: ${listaJS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+    else {
+        var tableJS = document.querySelector(".tema3");
+        tableJS.innerHTML = `<h2>Javascript</h2>`
+        for (let i = 0; i < listaJS.length; i++) {
+            tableJS.innerHTML += `
+            <ul>
+                <li>${listaJS[i].nome} : Nota: ${listaJS[i].pontuacao}</li>
+            </ul>
+            `;
+        }
+    }
+}
+
+function limparTabelasRanking() {
+    const tableHTML = document.querySelector(".tema1");
+    const tableCSS = document.querySelector(".tema2");
+    const tableJS = document.querySelector(".tema3");
+
+    tableHTML.innerHTML = "";
+    tableCSS.innerHTML = "";
+    tableJS.innerHTML = "";
 }
