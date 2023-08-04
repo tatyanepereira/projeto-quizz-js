@@ -6,13 +6,10 @@ import { resultadoArray } from "./participantes.js";
 
 const mainInicial = document.querySelector("main");
 const nome = document.getElementById("name");
-
 const tema = document.getElementById("temas");
 let selecionarTema;
 let valor = [];
-
 const btnIniciar = document.getElementById("btn-iniciar");
-
 const listaQuestoes = document.getElementById("lista-questoes");
 const containerInicial = document.querySelector(".start-container");
 const tituloTema = document.querySelector(".titulo-tema");
@@ -38,7 +35,6 @@ let pausar = false;
 let intervalo;
 
 console.log(pausar);
-
 function cronometro() {
     tempo.style.display = "flex";
 
@@ -67,12 +63,6 @@ function timer(time) {
 }
 
 
-//document.addEventListener("keydown", function (e) {
-  //  if (e.keyCode === 13) {
-  //      e.preventDefault();
- //   }
-//});
-
 //Botão Iniciar
 tema.addEventListener("change", () => {
     selecionarTema = tema.value;
@@ -90,8 +80,6 @@ function mostrarTema(values) {
     btnConcluir.style = "display: none";
     btnVoltar.style = "display: none";
     tituloTema.style = "display: block";
-
-
     for (let value of values) {
         listaQuestoes.innerHTML += `
             <li class="perguntas-container">
@@ -177,7 +165,6 @@ btnReiniciar.addEventListener("click", () => {
 });
 
 //Botão Concluir
-
 let marcador = [];
 let respostas = [];
 let temaEscolhido;
@@ -197,8 +184,6 @@ let marcador9;
 btnConcluir.addEventListener("click", (ev) => {
     btnConcluir.style.display = "none";
     btnContinuar.style.display = "block";
-    //tempo.style.display = "none";
-
     ev.preventDefault();
     pausar = true;
     marcador = [];
@@ -216,7 +201,6 @@ btnConcluir.addEventListener("click", (ev) => {
     marcador9 = document.querySelector('input[name="select9"]:checked').value;
     verificarRespostas();
     checarQuestoes(temaEscolhido);
-
 });
 
 function checarQuestoes(objeto) {
@@ -310,15 +294,12 @@ function verificarRespostas() {
 }
 
 //Botão continuar
-
 const posicao1 = document.getElementById("tema1");
 const posicao2 = document.getElementById("tema2");
 const posicao3 = document.getElementById("tema3");
 const corpoTabela = document.getElementById("corpo-tabela");
 
 const dataAtual = new Date();
-
-
 const dia = String(dataAtual.getDate()).padStart(2, '0');
 const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
 const ano = dataAtual.getFullYear();
@@ -331,7 +312,6 @@ function BotaoContinuar() {
     tempo.style.display = "none";
     perguntasContainer.style.display = "none";
     tituloTema.style.display = "none";
-    //divTituloTabela.style.display = "block";
 
     resultadoArray.push({
         nome: nome.value,
@@ -340,12 +320,10 @@ function BotaoContinuar() {
         data: dataFormatada,
         pontuacao: contagemAcertos
     });
-
     exibirResultados();
     medias();
     ranking(resultadoArray);
 };
-
 
 btnContinuar.addEventListener("click", () => {
     btnContinuar.style.display = "none";
@@ -360,7 +338,6 @@ btnContinuar.addEventListener("click", () => {
 
 
 // Botão voltar
-
 function BotaoVoltar() {
     clearInterval(intervalo);
     milisegundos = 0;
@@ -385,14 +362,11 @@ function BotaoVoltar() {
     limparTabelasRanking();
 }
 
-
 btnVoltar.addEventListener("click", () => {
     pausar = false;
     tempo.style.display = "none";
     BotaoVoltar();
 });
-
-
 
 export function exibirResultados() {
     var table = document.querySelector("#results_Usuario");
@@ -432,7 +406,7 @@ export function medias() {
 }
 
 export function ranking() {
-    //Criar variáveis com as notas de cada tema do quiz
+    //variáveis com  notas de cada tema 
     var listaHTML = resultadoArray.filter(function (player) {
         return player.tema === "HTML";
     });
@@ -451,7 +425,7 @@ export function ranking() {
     listaCSS.sort(compare);
     listaJS.sort(compare);
 
-    // Adiciona na tabela os resultados
+    // Adicionar os resultados
     if (listaHTML.length >= 5) {
         var tableHTML = document.querySelector(".tema1");
 
